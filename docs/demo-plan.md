@@ -37,9 +37,9 @@ Show request → visible execution → working filter with short captions. Crop 
 
 ## Optional onboarding / 可选安装演示：20–30 seconds
 
-Show tarball installation, `deng --version`, `deng init`, URL/model prompts and hidden Key entry, then `deng configure` from another directory. Use a disposable demo account. Never show an actual Key, credential file, browser password manager or terminal history containing secrets.
+Show `npm install --global dengagent`, `deng --version`, `deng init`, URL/model prompts and hidden Key entry, then `deng configure` from another directory. Use a disposable demo account. Never show an actual Key, credential file, browser password manager or terminal history containing secrets.
 
-展示安装、版本、首次初始化与隐藏 Key 输入，再从另一个目录修改配置。使用专用演示账户，不展示 Key、凭证文件、密码管理器或含密钥的终端历史。
+展示 npm 注册表安装、版本、首次初始化与隐藏 Key 输入，再从另一个目录修改配置。使用专用演示账户，不展示 Key、凭证文件、密码管理器或含密钥的终端历史。
 
 ## Recording conditions / 录制验收
 

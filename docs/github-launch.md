@@ -1,8 +1,8 @@
 # GitHub launch / GitHub 上线准备
 
-This guide prepares repository presentation and settings. The bilingual READMEs, release introductions, three output videos and cover images are prepared locally. A target repository has not been chosen; account/repository creation, package publication and hosted CI remain separate future steps.
+The release repository is [Steven-Zhu/dengagent](https://github.com/Steven-Zhu/dengagent). This guide records the presentation choices and operational checklist. Repository creation, hosted CI, npm publication and release publication are separate steps; a checked-in file does not establish that an account setting or publication has completed.
 
-双语首页、发布介绍、三条视频与封面已在本地准备。目标仓库尚未确定，建仓、公开发布和托管 CI 为后续步骤。
+发布仓库为 [Steven-Zhu/dengagent](https://github.com/Steven-Zhu/dengagent)。本文记录展示方案和操作清单；仓库设置、托管 CI、npm 发布和 Release 发布分别验收，不以文档存在代替实际完成。
 
 ## Identity / 账号与仓库归属
 
@@ -10,9 +10,9 @@ Keep your existing personal account. If DengAgent should have its own brand and 
 
 继续使用现有个人账号。如果希望 DengAgent 有独立品牌和多人权限管理，可用该账号创建 GitHub Organization，将仓库放在组织下；每个人仍使用自己的账号。不要用共享账号模拟团队，也不必为了项目另注册一个个人号。
 
-A personal repository is also suitable for a solo-maintained project. Choose the owner before filling package URLs. The suggested repository name is `dengagent`; no namespace availability has been checked or reserved.
+DengAgent currently uses the personal repository `Steven-Zhu/dengagent`. The package metadata points to this repository. A future organization transfer should update these URLs and verify redirects.
 
-个人维护项目也可以直接放在个人仓库。先确定归属，再填写包信息。建议仓库名 `dengagent`，名称尚未核实或预留。
+目前使用个人仓库 `Steven-Zhu/dengagent`，包元数据已配置对应地址。今后若迁入组织，应同步更新 URL 并检查重定向。
 
 Reference: [GitHub organizations](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations). GitHub Free supports organizations; paid plans add capabilities.
 
@@ -41,29 +41,30 @@ The current distribution videos are approximately 5.96 MB (watch), 2.32 MB (peli
 
 传播版约为 5.96、2.32、1.17 MB，均为 H.264 MP4。腕表原片在本地 QA 工程保留，传播版明确记录重新编码。文件大小与 SHA-256 见[素材清单](media/showcase/manifest.json)。
 
-The committed relative MP4 links are portable file destinations. After repository creation, test them on the actual GitHub page. For native attachment players, upload each movie in an appropriate GitHub editor, retain the returned real attachment URL, and verify playback on desktop and mobile before replacing links in both READMEs. Do not use a fake `user-attachments` URL or assume a relative file link autoplays. Originals need not be uploaded.
+Video links use the repository’s raw file URLs so they also work in the npm README. After uploading the source, test them on the actual GitHub page. For native attachment players, upload each movie in an appropriate GitHub editor, retain the returned real attachment URL, and verify playback on desktop and mobile before replacing links in both READMEs. Do not use a fake `user-attachments` URL or assume a relative file link autoplays. Originals need not be uploaded.
 
-相对 MP4 链接作为可迁移的文件入口；建仓后实测 GitHub 页面。需要内嵌附件播放器时，上传传播版、使用返回的真实地址，再同步双语首页并检查桌面与手机播放。静图负责初次加载，完整视频按需观看。
+视频使用仓库原始文件地址，兼顾 npm README；源码上传后实测 GitHub 页面。需要内嵌附件播放器时，上传传播版、使用返回的真实地址，再同步双语首页并检查桌面与手机播放。静图负责初次加载，完整视频按需观看。
 
 未确定真实地址前，不填网站、不放 npm / CI 成功徽章或下载量等声明。社交预览图可后补，现有小图标仅用于项目识别，不代表完成商标核查。
 
 ## Launch checklist / 上线清单
 
-- [ ] Choose the account/organization and repository name. / 确定账号或组织及仓库名。
+- [x] Choose the account/organization and repository name: `Steven-Zhu/dengagent`. / 已确定仓库归属及名称。
 - [ ] Confirm MIT as the intended source license before public distribution. / 公开前确认采用 MIT。
 - [ ] Create a standalone repository from this clean source root, not a parent workspace. / 使用干净源码根目录，不提交父工作区。
-- [ ] Fill `package.json` with the real `repository`, `homepage` and `bugs.url` after the URL exists. Refresh lock/shrinkwrap metadata if it changes. / 获得真实仓库 URL 后补齐包元数据。
+- [x] Fill `package.json` with the real `repository`, `homepage` and `bugs.url`. / 已补齐真实仓库元数据。
 - [ ] Review the exact files to commit, including hidden files; no credentials, runtime databases, local logs or private screenshots. / 审查提交文件，包括隐藏文件，无凭证、数据库和隐私素材。
 - [ ] Enable Issues, set the description/topics and verify bilingual README navigation. / 开启 Issues，设置简介和 topics，检查双语导航。
 - [ ] Enable private vulnerability reporting; verify the reporting path works. / 开启并检查私密漏洞报告。
 - [ ] Enable dependency alerts where available; review Dependabot proposals before merging. / 开启可用的依赖告警，审查自动更新。
 - [ ] Run hosted CI on the uploaded commit; require a passing check before merging changes when the repository settings allow. / 在实际提交上运行 CI，并按仓库设置要求通过检查。
 - [ ] Choose real reviewer/owner handles before adding CODEOWNERS; no fabricated identities. / 确定真实维护者后再加 CODEOWNERS。
-- [ ] Verify the final release artifact, attach checksums and mark the release as a prerelease. / 验证最终发布包，附校验和并标记预发布。
+- [ ] Verify the final release artifact, attach checksums and publish the first public release as v1.0. / 验证最终发布包，附校验和，首次公开发布命名为 v1.0。
 - [ ] Publish npm only through the chosen publisher after exact version/name checks. / 确认版本与包名后，由选定发布者发布 npm。
 - [x] Prepare three output videos, extracted covers and portable provenance locally. / 已在本地准备三条视频、抽帧封面和来源清单。
 - [ ] Verify image/video links after upload; attach the share card in Settings. / 上传后验证图片视频入口，在设置中上传分享封面。
-- [ ] Record the separate assistant/console walkthrough. / 录制独立的助手与控制台工作流演示。
+- [x] Prepare bilingual annotated workflow images from the supplied Codex screenshots, with original captures and English-captioned video. / 已准备基于真实 Codex 截图的双语图解、原图及英文字幕视频。
+- [ ] Optionally record a continuous assistant/console walkthrough. / 可后续补充连续操作录屏。
 
 The source includes issue forms, PR/release templates, support/security/conduct files, Dependabot and an offline-verification workflow. Settings such as private reporting and required checks must be enabled on the actual repository; files alone cannot enable them.
 

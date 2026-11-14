@@ -24,7 +24,7 @@ Attach the exact tested tgz and checksums. Use the real filename in the installa
 
 ## Limits and migration / 边界与迁移
 
-Mention developer-preview status, credential storage, platform isolation, usage reservations and host-dependent embedded UI. Point to current documentation rather than copying obsolete instructions.
+Mention the supported agent integrations, credential storage, platform isolation, usage reservations and host-dependent embedded UI. Point to current documentation rather than copying obsolete instructions.
 
 ## 中文说明
 

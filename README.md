@@ -101,7 +101,7 @@ deng resume TASK_ID
 deng cancel TASK_ID
 ```
 
-The global MCP always requires an absolute `project` argument, independent of its launch directory. Hosts open `prepare_console` before submitting work. Fresh console URLs change after engine restarts. CLI `watch` interruption ends observation; `run --watch` interruption requests a pause. [Console and controls](docs/console.md)
+The global MCP always requires an absolute `project` argument, independent of its launch directory. Hosts can use `prepare_console` to open the project console; a visible console is not required for authorized backend execution. Fresh console URLs change after engine restarts. CLI `watch` interruption ends observation; `run --watch` interruption requests a pause. [Console and controls](docs/console.md)
 
 ## Made with DengAgent
 

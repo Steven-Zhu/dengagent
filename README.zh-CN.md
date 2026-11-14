@@ -101,7 +101,7 @@ deng resume TASK_ID
 deng cancel TASK_ID
 ```
 
-全局 MCP 的每个调用都要求绝对 `project` 路径，不依赖启动目录。宿主先打开 `prepare_console` 再提交任务；引擎重启后需获取新地址。独立 `watch` 中断只结束观察，`run --watch` 中断会请求暂停。[控制台与任务控制](docs/console.md)
+全局 MCP 的每个调用都要求绝对 `project` 路径，不依赖启动目录。宿主可用 `prepare_console` 打开项目控制台；控制台是否可见不影响已授权的后台执行。引擎重启后需获取新地址。独立 `watch` 中断只结束观察，`run --watch` 中断会请求暂停。[控制台与任务控制](docs/console.md)
 
 ## 用 Deng 做出的案例
 

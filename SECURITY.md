@@ -1,6 +1,6 @@
 # Security
 
-Only the latest Alpha source is maintained. There is no security-response SLA. This is a local developer preview, not a hardened multi-user service.
+Only the latest release is maintained. There is no security-response SLA. DengAgent is designed for a trusted local user; it is not a hardened multi-user service.
 
 For a suspected credential leak, scope bypass, command sandbox escape or unauthorized task control, use this repository's **Security → Advisories → Report a vulnerability** when private vulnerability reporting is enabled. Do not put credentials, exploit details or private task logs into a public issue. If private reporting is unavailable, open a minimal issue asking maintainers to enable a private reporting channel; share details only after a private channel is established.
 
@@ -14,7 +14,7 @@ The macOS command backend denies network access and restricts writes, but is not
 
 ## 中文说明
 
-当前只维护最新 alpha，不提供安全响应时限承诺，也不是面向不可信多用户的服务。
+当前只维护最新发布，不提供安全响应时限承诺。DengAgent 面向可信的本机用户，不是面向不可信多用户的服务。
 
 凭证泄露、任务越权、沙箱绕过和未经授权的任务控制，请使用本仓库 **Security → Advisories → Report a vulnerability**。该入口需仓库维护者启用；不可用时只提交“请求开启私密报告渠道”的简短 issue，不要公开漏洞细节、利用代码、凭证或私有日志，私密渠道建立后再提供复现。
 

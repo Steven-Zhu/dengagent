@@ -1,12 +1,12 @@
 # License choice and redistribution
 
-The local DengAgent release candidate is prepared with **MIT**. This is a permissive choice aligned with Pi's license and a small reusable developer tool. It permits commercial use and closed-source derivatives subject to preserving its copyright and permission notice. It does not require downstream modifications to be published.
+DengAgent is distributed under **MIT**. This is a permissive choice aligned with Pi's license and a small reusable developer tool. It permits commercial use and closed-source derivatives subject to preserving its copyright and permission notice. It does not require downstream modifications to be published.
 
 The installed `@earendil-works/pi-agent-core`, `pi-ai` and `pi-telemetry` 1.3.0 manifests declare MIT. Their official repository's `v1.3.0` LICENSE names Mario Zechner (2025). Pi's own license is independent of whichever compatible license Deng chooses. [Pi LICENSE](https://github.com/earendil-works/pi/blob/v1.3.0/LICENSE) · [OSI MIT text](https://opensource.org/license/mit)
 
 **Apache-2.0** is another permissive commercial option with an explicit contributor patent grant and patent-termination provisions, plus more detailed redistribution/notice requirements. Prefer it if those provisions are a project priority. It also allows closed-source derivatives. [Official Apache-2.0 text](https://www.apache.org/licenses/LICENSE-2.0) · [Apache license FAQ](https://www.apache.org/foundation/license-faq.html)
 
-If the intended policy instead requires derivatives to remain open source, MIT and Apache-2.0 do not implement that policy. That would need a separate copyleft decision and compatibility review. No irreversible public license grant has been made by preparing these local files; the repository owner should confirm the intended license before the first public release.
+If the intended policy instead requires derivatives to remain open source, MIT and Apache-2.0 do not implement that policy. That would need a separate copyleft decision and compatibility review. The repository’s [LICENSE](../LICENSE) states the terms applied to the published source; dependency licenses remain independent.
 
 ## Dependency scope
 
