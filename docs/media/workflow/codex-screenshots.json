@@ -1,0 +1,22 @@
+{
+  "provided_date": "2026-11-15",
+  "source": "Two native Codex screenshots supplied by the user from the DNA film project.",
+  "project": "DNA: from discovery to editing",
+  "native_codex_chat": true,
+  "images": [
+    {
+      "file": "codex-dna-process.png",
+      "sha256": "cf417308bcca39e9698e6905af3b74c3445e5f6b40f715d962acf804f6ade0d8",
+      "original_sha256": "cf417308bcca39e9698e6905af3b74c3445e5f6b40f715d962acf804f6ade0d8",
+      "pixel_and_file_changes": "None; exact copy of user-supplied screenshot."
+    },
+    {
+      "file": "codex-dna-delivery.png",
+      "sha256": "a85885b34df44d527cd4444a54dc7e618545623fe11ce3484ed170bbe9804c92",
+      "original_sha256": "a85885b34df44d527cd4444a54dc7e618545623fe11ce3484ed170bbe9804c92",
+      "pixel_and_file_changes": "None; exact copy of user-supplied screenshot."
+    }
+  ],
+  "excluded_reference": "The separate pelican split-view screenshot contains a full console URL and is retained only in local working files, outside the public source.",
+  "case_scope": "Codex designed the narrative, reviewed progress, corrected issues and performed final rendering/acceptance. Deng implemented animation and sound code. The process screenshot records an intermediate context-limit interruption."
+}

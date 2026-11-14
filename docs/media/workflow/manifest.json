@@ -1,0 +1,21 @@
+{
+  "captured_date": "2026-11-14",
+  "original_task_date": "2026-11-13",
+  "source": "Real completed pelican project, browser console viewed via CUA.",
+  "native_codex_chat": false,
+  "image_changes": "Cropped screenshots only; no text or status edits.",
+  "images": [
+    {
+      "file": "02-handoff.jpg",
+      "sha256": "e7df893daef25972fd47d556247d7547bf8006a16335cc45d36c2cdd65e93a8b"
+    },
+    {
+      "file": "03-execution.jpg",
+      "sha256": "b108e5f9b2a289e1aa8660f6d27ffd246bbaf21225eec37d5ac787188600313b"
+    },
+    {
+      "file": "04-delivery.jpg",
+      "sha256": "fbb2fdb5dbf87c4a6df5441b29169d415c292f257317a3653eb0662c39c7a0fe"
+    }
+  ]
+}

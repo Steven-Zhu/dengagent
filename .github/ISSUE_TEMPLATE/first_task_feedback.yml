@@ -1,0 +1,48 @@
+name: First-task feedback / 首次任务反馈
+description: Tell us where your first task succeeded or got stuck / 记录首次任务进展
+title: "[First task]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A small first-task report helps improve onboarding. Public output only: omit Keys, private code, console tokens and personal paths.
+        一个小任务的反馈即可。请只提供可公开信息，省略 Key、私有代码、控制台令牌与个人路径。
+  - type: input
+    id: environment
+    attributes:
+      label: Version and environment / 版本与环境
+      placeholder: Deng (deng --version), macOS, Node 24, Codex
+    validations:
+      required: true
+  - type: dropdown
+    id: source
+    attributes:
+      label: Where did you find DengAgent? / 从哪里了解到？
+      options:
+        - GitHub
+        - X
+        - V2EX
+        - Hacker News
+        - Bilibili / B站
+        - Article or recommendation / 文章或推荐
+        - Prefer not to say / 不填写
+  - type: dropdown
+    id: progress
+    attributes:
+      label: Furthest step reached / 到了哪一步？
+      options:
+        - Looked at the examples / 看过案例
+        - Installed the package / 已安装
+        - Finished configuration / 已配置
+        - Submitted a real task / 已提交真实任务
+        - Completed and checked a task / 已完成并验收
+        - Used it again / 已重复使用
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: Task and outcome / 任务与结果
+      description: A brief goal, what worked, and the first blocker if any / 简述目标、成功部分与首个卡点
+    validations:
+      required: true

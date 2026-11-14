@@ -1,0 +1,12 @@
+DengAgent
+Copyright (c) 2026 DengAgent contributors
+
+DengAgent uses Pi Agent Core and Pi AI, developed by Mario Zechner and
+contributors, and other independently licensed dependencies. Their licenses
+are not replaced by DengAgent's MIT license. See THIRD_PARTY_NOTICES.md and
+licenses/ for the package inventory, copyright and permission notices.
+
+Standalone installers also include Node.js and its bundled components.
+Their upstream LICENSE is included at runtime/LICENSE in the application
+bundle. No affiliation with or endorsement by dependency authors, OpenAI,
+model providers, or other referenced projects is implied.

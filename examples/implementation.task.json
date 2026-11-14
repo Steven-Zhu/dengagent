@@ -1,0 +1,14 @@
+{
+  "goal": "Implement the feature described in docs/feature-design.md and pass the fixed feature test",
+  "inputs": ["docs/feature-design.md"],
+  "scope": {
+    "read": ["."],
+    "write": ["src"],
+    "commands": [{ "argv": ["node", "--test", "test/feature.test.mjs"], "cwd": "." }]
+  },
+  "acceptance": {
+    "commands": [{ "argv": ["node", "--test", "test/feature.test.mjs"], "cwd": "." }],
+    "required_files": ["src/feature.mjs"]
+  },
+  "request_id": "feature-implementation-v1"
+}

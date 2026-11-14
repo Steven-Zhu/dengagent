@@ -1,0 +1,21 @@
+name: Usage question / 使用问题
+description: Ask about setup or an existing workflow. / 询问配置或已有功能。
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please read SUPPORT.md and docs/troubleshooting.md first.
+        先查支持与排错文档，不要发送 Key、完整配置、私人代码或控制台地址。
+  - type: input
+    id: environment
+    attributes:
+      label: Version and environment / 版本与环境
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Goal, question and what you tried / 目标、问题与已尝试的方法
+      description: Use fake or redacted examples. / 使用虚构或脱敏示例。
+    validations:
+      required: true

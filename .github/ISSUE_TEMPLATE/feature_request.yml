@@ -1,0 +1,16 @@
+name: Feature request / 功能建议
+description: Describe a concrete workflow and desired outcome. / 描述实际场景和目标。
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Workflow and problem / 使用场景与问题
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome / 期望结果
+      description: Include alternatives and effects on scope, cost or task control if relevant. / 可补充替代方案，以及对权限、费用或任务控制的影响。
+    validations:
+      required: true

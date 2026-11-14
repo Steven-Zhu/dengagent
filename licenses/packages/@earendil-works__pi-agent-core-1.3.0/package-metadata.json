@@ -1,0 +1,11 @@
+{
+  "name": "@earendil-works/pi-agent-core",
+  "version": "1.3.0",
+  "license": "MIT",
+  "author": "Mario Zechner",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/earendil-works/pi.git",
+    "directory": "packages/agent"
+  }
+}

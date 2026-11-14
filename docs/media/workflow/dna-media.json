@@ -1,0 +1,92 @@
+{
+  "prepared_date": "2026-11-15",
+  "original_file": "dna_history.mp4",
+  "original_sha256": "b72993ea3c61843e93ee3cb18b2a6d1b33b8f34baa861dc37fd06b09bf8a21a2",
+  "original_probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "nb_frames": "3600"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0",
+        "nb_frames": "5626"
+      }
+    ],
+    "format": {
+      "duration": "120.000000",
+      "size": "34683934"
+    }
+  },
+  "distribution_file": "dna-history.mp4",
+  "distribution_sha256": "f7a72445161c5e613357f0ffe0a28e539a101cfd04c3fa89e2c8613403896788",
+  "distribution_probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1280,
+        "height": 720,
+        "r_frame_rate": "30/1",
+        "nb_frames": "3600"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0",
+        "nb_frames": "5626"
+      }
+    ],
+    "format": {
+      "duration": "120.000000",
+      "size": "7192382"
+    }
+  },
+  "transform": "Complete film, scaled from 1080p to 720p; H.264 and AAC distribution encoding, metadata removed, faststart enabled.",
+  "full_video_audio_decode": "passed",
+  "scope": "Distribution validation only. Existing project delivery notes attribute final rendering and acceptance to Codex, animation and sound implementation to Deng. No new model run or animation generation occurred.",
+  "english_distribution": {
+    "file": "dna-history.en.mp4",
+    "sha256": "b468eb69a6e1ad63c675e8b32c8bb7ea4c8d7b62818c786477eedf14e5348f08",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720,
+          "r_frame_rate": "30/1",
+          "nb_frames": "3600"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "nb_frames": "5626"
+        }
+      ],
+      "format": {
+        "duration": "120.000000",
+        "size": "7416593"
+      }
+    },
+    "full_video_audio_decode": "passed",
+    "subtitle_cues": 28,
+    "subtitle_timing": "Same cue boundaries as original narration subtitles",
+    "transform": "English translated captions rendered into the upper picture area. Mandarin narration and existing Chinese picture text retained.",
+    "srt": "dna-history.en.srt",
+    "vtt": "dna-history.en.vtt"
+  }
+}

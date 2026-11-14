@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "prepared_date": "2026-11-13",
+  "product_version": "0.2.0-alpha.13",
+  "provenance": "Distribution copies of the three locally verified alpha.13 QA outputs. Tourbillon and cube are re-rendered existing projects; pelican was implemented and iterated with Deng.",
+  "verification_scope": "Original task acceptance applies to original files. These distribution copies were separately probed and fully decoded. Encoding checks do not certify artistic quality or general model capability.",
+  "assets": [
+    {
+      "id": "tourbillon",
+      "original_file": "tourbillon.mp4",
+      "original_sha256": "50211d9fe701276e2d808fe8cc94b28c19bc4fbbde3383eddde4c486c4f9cb68",
+      "video": "tourbillon.mp4",
+      "video_sha256": "a2ff5a581f90ef428e4586858ab47223b7a94b1f9a03f5d4c84daf25114065af",
+      "bytes": 5964572,
+      "poster": "tourbillon-poster.jpg",
+      "poster_sha256": "9e730bc5aeb3294d164db497a15d18a0b80247467adcdacc38d66f48b8388618",
+      "poster_time_seconds": 18.7,
+      "distribution_transform": "H.264 CRF 23 / AAC 128k transcode; same frames, duration and dimensions",
+      "full_decode": "passed",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "24/1",
+            "nb_frames": "480"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "nb_frames": "939"
+          }
+        ],
+        "format": {
+          "duration": "20.010000",
+          "size": "5964572"
+        }
+      }
+    },
+    {
+      "id": "pelican",
+      "original_file": "pelican.mp4",
+      "original_sha256": "fcd2480a6b99d25c3e867cbefd876711af737e07dcca8c734964236a20fa349b",
+      "video": "pelican.mp4",
+      "video_sha256": "9de1c81ade20fbfb1528b3ef6af3b45fd6d3ce4cde4abccfaf08d0783807c914",
+      "bytes": 2315474,
+      "poster": "pelican-poster.jpg",
+      "poster_sha256": "038a7efd88999710ebc44644ae11d4fc5e6ba41ba550d76e8f6f73424bde169a",
+      "poster_time_seconds": 4.8,
+      "distribution_transform": "Remux; original encoded video/audio retained",
+      "full_decode": "passed",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720,
+            "r_frame_rate": "30/1",
+            "nb_frames": "360"
+          }
+        ],
+        "format": {
+          "duration": "12.000000",
+          "size": "2315474"
+        }
+      }
+    },
+    {
+      "id": "cube",
+      "original_file": "five-moves.mp4",
+      "original_sha256": "bb75799975db4d6adb1890d9b8836690cc68d25afbc6d00a1de5af2633e97afa",
+      "video": "cube.mp4",
+      "video_sha256": "204bf579440f529c84e398c4854c4a97efa755bd1edea84490958a5342fdd9fc",
+      "bytes": 1170107,
+      "poster": "cube-poster.jpg",
+      "poster_sha256": "f441e8e73802b452ad1c1eaecd70345956f2fa76243f9f3d7a32e85aa04d0525",
+      "poster_time_seconds": 7.0,
+      "distribution_transform": "Remux; original encoded video/audio retained",
+      "full_decode": "passed",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1280,
+            "height": 720,
+            "r_frame_rate": "30/1",
+            "nb_frames": "540"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "nb_frames": "777"
+          }
+        ],
+        "format": {
+          "duration": "18.000000",
+          "size": "1170107"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+name: Verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run check:docs
+      - run: npm run audit:source
+      - run: npm audit --omit=dev --audit-level=high
+      - run: npm run licenses
+      - run: git diff --exit-code -- THIRD_PARTY_NOTICES.md licenses/
+      - name: Verify npm global installation
+        if: runner.os == 'macOS'
+        run: |
+          mkdir -p "$RUNNER_TEMP/deng-npm"
+          npm pack --pack-destination "$RUNNER_TEMP/deng-npm"
+          npm run verify:npm -- --package "$RUNNER_TEMP"/deng-npm/*.tgz

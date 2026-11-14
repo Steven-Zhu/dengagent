@@ -1,0 +1,82 @@
+{
+  "name": "dengagent",
+  "version": "1.0.0",
+  "description": "Hand your Codex plan to a local worker. Choose its model, follow execution and verify delivery.",
+  "type": "module",
+  "bin": {
+    "deng": "bin/deng.mjs"
+  },
+  "engines": {
+    "node": ">=24",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "demo": "node scripts/demo.mjs",
+    "bundle": "node scripts/bundle.mjs",
+    "licenses": "node scripts/licenses.mjs",
+    "audit:source": "node scripts/audit-source.mjs",
+    "check:docs": "node scripts/check-docs.mjs",
+    "verify:npm": "node scripts/verify-npm.mjs",
+    "sync:shrinkwrap": "node scripts/sync-shrinkwrap.mjs"
+  },
+  "dependencies": {
+    "@earendil-works/pi-agent-core": "1.3.0",
+    "@earendil-works/pi-ai": "1.3.0",
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "smol-toml": "1.9.1",
+    "typebox": "1.3.27",
+    "zod": "4.6.7"
+  },
+  "files": [
+    "bin",
+    "src",
+    "skills",
+    "docs",
+    "examples",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "README.zh-CN.md",
+    "LICENSE",
+    "NOTICE",
+    "licenses",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md",
+    "SUPPORT.md",
+    "ROADMAP.md",
+    ".github/RELEASE_TEMPLATE.md",
+    "npm-shrinkwrap.json"
+  ],
+  "license": "MIT",
+  "packageManager": "npm@11.6.2",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "bundleDependencies": [
+    "@earendil-works/pi-agent-core",
+    "@earendil-works/pi-ai",
+    "@modelcontextprotocol/sdk",
+    "smol-toml",
+    "typebox",
+    "zod"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Steven-Zhu/dengagent.git"
+  },
+  "homepage": "https://github.com/Steven-Zhu/dengagent#readme",
+  "bugs": {
+    "url": "https://github.com/Steven-Zhu/dengagent/issues"
+  },
+  "keywords": [
+    "codex",
+    "mcp",
+    "coding-agent",
+    "developer-tools",
+    "pi",
+    "local-first"
+  ]
+}

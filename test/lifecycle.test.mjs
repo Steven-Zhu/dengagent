@@ -1,0 +1,34 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {cp,mkdir,symlink,writeFile,appendFile} from 'node:fs/promises';
+import {join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {Client} from '@modelcontextprotocol/sdk/client/index.js';
+import {StdioClientTransport} from '@modelcontextprotocol/sdk/client/stdio.js';
+import {request} from '../src/host.mjs';
+import {environment,until} from './helpers.mjs';
+const runtime=fileURLToPath(new URL('..',import.meta.url));
+
+test('a live standard MCP connection reloads installed code, preserves active work, and upgrades the idle engine',async t=>{
+ const{root,path,config}=await environment(t);const app=join(root,'runtime');await mkdir(app);await mkdir(join(root,'work'));
+ for(const name of['src','bin','package.json'])await cp(join(runtime,name),join(app,name),{recursive:true});await symlink(join(runtime,'node_modules'),join(app,'node_modules'));
+ await writeFile(join(root,'work/a'),'retained artifact');
+ const command={argv:['node','-e',"setTimeout(()=>console.log('done'),1500)"],cwd:'work'};
+ await writeFile(join(root,'task.json'),JSON.stringify({goal:'Retain active task across an installed build change',request_id:'upgrade-fixture',scope:{read:['work'],write:['work'],commands:[command]},acceptance:{required_files:['work/a']},offline_script:[{name:'run_command',arguments:command},{name:'request_input',arguments:{question:'Wait before finishing'}},{name:'finish_task',arguments:{summary:'Upgraded task completed'}}]}));
+ const client=new Client({name:'lifecycle-fixture',version:'1'});await client.connect(new StdioClientTransport({command:process.execPath,args:[join(app,'bin/deng.mjs'),'mcp','--config',path],stderr:'pipe'}));
+ t.after(async()=>{await client.close();await request(config,'/shutdown','POST',{}).catch(()=>{});});
+ const call=async(name,args={})=>{const result=await client.callTool({name,arguments:args});assert.ok(!result.isError,JSON.stringify(result));return JSON.parse(result.content[0].text);};
+ const before=await call('runtime_status');assert.equal(before.client.build_id,before.engine.build_id);
+ const submitted=await call('submit_task',{task_file:'task.json'}),id=submitted.task.id;await until(async()=>((await request(config,`/tasks/${id}`)).phase?.name==='executing_command'));
+ await appendFile(join(app,'src/version.mjs'),'\n// installed update fixture\n');
+ const pending=await call('runtime_status');assert.notEqual(pending.client.build_id,before.client.build_id);assert.equal(pending.engine.pid,before.engine.pid);assert.equal(pending.engine.upgrade_pending,true);
+ const denied=await client.callTool({name:'submit_task',arguments:{task_file:'task.json'}});assert.equal(denied.isError,true);assert.match(denied.content[0].text,/ENGINE_UPGRADE_PENDING/);
+ await until(async()=>(await request(config,`/tasks/${id}`)).status==='waiting_input');
+ const after=await call('runtime_status');assert.equal(after.client.build_id,after.engine.build_id);assert.notEqual(after.engine.pid,before.engine.pid);
+ const retained=await call('get_task',{task_id:id});assert.equal(retained.status,'waiting_input');assert.equal(retained.usage.model_calls,2);
+ const input=await call('send_input',{task_id:id,input:'Finish the retained artifact.'});assert.equal(input.auto_resumed,false);assert.equal(input.task.status,'waiting_input');
+ await call('control_task',{task_id:id,action:'resume'});await until(async()=>(await request(config,`/tasks/${id}`)).status==='completed');
+ const delivery=await call('verify_delivery',{task_id:id});assert.equal(delivery.valid,true);
+ await writeFile(join(root,'work/a'),'edited later');const changed=await call('verify_delivery',{task_id:id});assert.equal(changed.valid,false);assert.deepEqual(changed.changed_files,['work/a']);
+ const events=await request(config,`/tasks/${id}/events?limit=100`);assert.ok(!events.events.some(e=>e.payload.status==='pausing'));
+});

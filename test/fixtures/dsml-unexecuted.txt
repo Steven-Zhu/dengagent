@@ -1,0 +1,7 @@
+The following is a reduced, sanitized text-channel shape from the alpha.8 incident.
+<｜｜DSML｜｜ calls>
+<｜｜DSML｜｜ invoke name="append_file">
+<｜｜DSML｜｜ parameter name="path" string="true">work/result.txt</｜｜DSML｜｜ parameter>
+<｜｜DSML｜｜ parameter name="content" string="true">unexecuted fixture output</｜｜DSML｜｜ parameter>
+</｜｜DSML｜｜ invoke>
+</｜｜DSML｜｜ calls>

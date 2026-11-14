@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1",
+  "workspace_root": "/absolute/path/to/your-project",
+  "models": {
+    "default": "tencent-deepseek",
+    "profiles": {
+      "tencent-deepseek": {
+        "api": "openai-completions",
+        "base_url": "https://api.lkeap.cloud.tencent.com/plan/v3",
+        "model": "deepseek/deepseek-flash",
+        "api_key_env": "TENCENT_TOKENHUB_API_KEY",
+        "thinking": "enabled",
+        "context_window": 262144,
+        "max_output_tokens": 32768,
+        "timeout_ms": 300000,
+        "reasoning_effort": "low",
+        "compat": {
+          "reasoning_format": "auto"
+        }
+      }
+    },
+    "choices": [
+      {
+        "profile": "tencent-deepseek",
+        "model": "deepseek/deepseek-flash",
+        "name": "DeepSeek Flash"
+      },
+      {
+        "profile": "tencent-deepseek",
+        "model": "deepseek/deepseek-v4-pro",
+        "name": "DeepSeek V4 Pro"
+      }
+    ]
+  },
+  "tools": {
+    "isolation": "macos"
+  },
+  "budget": {
+    "max_total_tokens": 1000000
+  }
+}

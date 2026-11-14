@@ -1,0 +1,72 @@
+[
+  {
+    "id": "pi",
+    "repo": "earendil-works/pi",
+    "ref": "v1.3.0",
+    "path": "LICENSE",
+    "packages": [
+      "@earendil-works/pi-agent-core",
+      "@earendil-works/pi-ai",
+      "@earendil-works/pi-telemetry"
+    ],
+    "file": "pi-LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/earendil-works/pi/v1.3.0/LICENSE",
+    "sha256": "0457f5bcec3b3b211605dfb5d1a49042fd638f3686a410fe099c24a25af13c48",
+    "versions": {
+      "@earendil-works/pi-agent-core": "1.3.0",
+      "@earendil-works/pi-ai": "1.3.0",
+      "@earendil-works/pi-telemetry": "1.3.0"
+    }
+  },
+  {
+    "id": "aws-sdk",
+    "repo": "aws/aws-sdk-js-v3",
+    "ref": "86b3dcd6619aa3a5972f2e189b0e0b83d9a07ffe",
+    "path": "LICENSE",
+    "packages": [
+      "@aws-sdk/credential-provider-http",
+      "@aws-sdk/credential-provider-login",
+      "@aws-sdk/nested-clients"
+    ],
+    "file": "aws-sdk-LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/aws/aws-sdk-js-v3/86b3dcd6619aa3a5972f2e189b0e0b83d9a07ffe/LICENSE",
+    "sha256": "edea91454b811f127fbdea3d86f378f6719bd372ed440abf82b232f6fca06c3d",
+    "versions": {
+      "@aws-sdk/credential-provider-http": "3.972.78",
+      "@aws-sdk/credential-provider-login": "3.972.83",
+      "@aws-sdk/nested-clients": "3.997.50"
+    },
+    "note": "Missing package LICENSE files supplemented from the same SDK repository root. This is the most recent LICENSE-file commit matching the retrieved upstream text; installed package versions separately declare Apache-2.0."
+  },
+  {
+    "id": "standardwebhooks",
+    "repo": "standard-webhooks/standard-webhooks",
+    "ref": "b4d2c14fc5b4ccff3ff271e3b087dff812254c59",
+    "path": "libraries/LICENSE",
+    "packages": [
+      "standardwebhooks"
+    ],
+    "file": "standardwebhooks-LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/standard-webhooks/standard-webhooks/b4d2c14fc5b4ccff3ff271e3b087dff812254c59/libraries/LICENSE",
+    "sha256": "5ec8c7b26b64d881a6706617bed25c049f97f2f35de034c756de8546fd6dbe27",
+    "versions": {
+      "standardwebhooks": "1.1.1"
+    }
+  },
+  {
+    "id": "proxy-agent-negotiate",
+    "repo": "TooTallNate/proxy-agents",
+    "ref": "proxy-agent-negotiate@1.1.0",
+    "path": "packages/proxy-agent/LICENSE",
+    "packages": [
+      "proxy-agent-negotiate"
+    ],
+    "file": "proxy-agent-negotiate-LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/TooTallNate/proxy-agents/proxy-agent-negotiate@1.1.0/packages/proxy-agent/LICENSE",
+    "sha256": "8d8c55319c7729d57be811c747452636688d54f19701ee0752b6b15ad3771d9a",
+    "versions": {
+      "proxy-agent-negotiate": "1.1.0"
+    },
+    "note": "The release-tag tree has no package-specific LICENSE for negotiate. The package declares MIT and names Nathan Rajlich; preserve that package metadata alongside this additional same-repository proxy-agent MIT notice. This is not claimed as a recovered package-specific original."
+  }
+]

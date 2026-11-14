@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.1",
+  "workspace_root": "/absolute/path/to/your-project",
+  "provider": "compatible",
+  "models": {
+    "default": "worker",
+    "profiles": {
+      "worker": {
+        "base_url": "https://api.example.com/v1",
+        "model": "your-model-id",
+        "api_key_env": "DENG_API_KEY",
+        "credential_source": "env",
+        "context_window": 262144,
+        "max_output_tokens": 32768,
+        "timeout_ms": 300000,
+        "thinking": "enabled",
+        "reasoning_effort": "low",
+        "compat": {
+          "reasoning_format": "auto"
+        }
+      }
+    }
+  },
+  "tools": {
+    "isolation": "macos"
+  },
+  "budget": {
+    "max_total_tokens": 1000000
+  }
+}

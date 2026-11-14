@@ -1,0 +1,30 @@
+import {McpServer} from '@modelcontextprotocol/sdk/server/mcp.js';
+import {StdioServerTransport} from '@modelcontextprotocol/sdk/server/stdio.js';
+import {z} from 'zod';
+import {safeError} from './config.mjs';
+import {compactResponse} from './summary.mjs';
+import {VERSION} from './version.mjs';
+import {freshService} from './fresh-service.mjs';
+import {registerConsoleApp} from './mcp-app.mjs';
+export async function startMcp(config,{global=false}={}){
+ const projectSchema=global?{project:z.string().min(1).max(4096).describe('Absolute canonical project from the current workspace/user; never the MCP launch directory.')}:{},task={...projectSchema,task_id:z.string().uuid()};
+ const server=new McpServer({name:'dengagent',version:VERSION},{instructions:'Every global tool requires an explicit absolute project. Deng uses Pi for the agent loop, streaming, events and tool scheduling. Deng owns authorization, budgets, durable task/operation ledgers and versioned delivery. Default model selection affects future tasks only. Never automatically pause/switch/resume a model. Offer the project console when UI is available; a locked screen, disabled browser, queued host open or absent UI heartbeat must not block authorized backend submission, waiting, inspection or delivery verification. Never claim the console is visible without confirmation. Unknown usage and unsafe command outcomes retain reservations and need explicit acknowledgement. send_input queues a same-scope clarification; it changes no permissions, limits or model. Completed means the configured final checks passed for the recorded artifact version; semantic review is separate. Never submit credentials.'});
+ const invoke=(tool,args)=>freshService({tool,args,global,config_path:config?.path});
+ const wrap=name=>async args=>{try{return{content:[{type:'text',text:JSON.stringify(compactResponse(await invoke(name,args)))}]};}catch(e){return{isError:true,content:[{type:'text',text:JSON.stringify({error:safeError(e)})}]};}};
+ registerConsoleApp(server,config,{global,service:invoke});
+ const register=(name,description,inputSchema,readOnlyHint,openWorldHint=false)=>server.registerTool(name,{description,inputSchema,annotations:{readOnlyHint,openWorldHint,destructiveHint:false}},wrap(name));
+ register('prepare_console','Prepare the reusable project console before work; verify actual connection/visibility. No model calls.',projectSchema,true);
+ register('submit_task','Submit one project task JSON with exact scopes, fixed checks, optional bounded per-command timeout/replay policy and request_id. Reuse returned ID; retries of the same original request return the existing task.',{...projectSchema,task_file:z.string().min(1).max(1024)},false,true);
+ register('get_task','Read compact task state, phase, settled/reserved usage, historical milestone counts and final delivery reference.',task,true);
+ register('get_task_details','Read a bounded page of public task details, not credentials or private conversation messages.',{...task,offset:z.number().int().nonnegative().default(0),limit:z.number().int().min(1).max(4096).default(4096)},true);
+ register('wait_task','Wait up to 25 seconds for meaningful completion/stopped/input state. Reuse cursor; waiting makes no inference call and never stops work.',{...task,after_seq:z.number().int().nonnegative().default(0),timeout_ms:z.number().int().min(0).max(25000).default(25000)},true);
+ register('get_models','List configured future-task choices and unfinished tasks own model snapshots; no provider probe.',projectSchema,true);
+ register('set_model','Choose a future-task default, or change an explicitly stopped task. Running tasks are rejected. Never automatically pause or resume to switch; selection makes no model request.',{...projectSchema,model:z.string().min(1).max(256),profile:z.string().min(1).max(256).optional(),task_id:z.string().uuid().optional(),expected_revision:z.number().int().positive().optional()},false);
+ register('control_task','Pause/cancel with actual stop acknowledgement, or explicitly resume preserving budgets/deadline. Unknown usage/unsafe command outcomes require separate explicit acknowledgements, without clearing reservations.',{...task,action:z.enum(['pause','cancel','resume']),input:z.string().max(16000).optional(),expected_revision:z.number().int().positive().optional(),allow_unknown_usage:z.boolean().default(false),allow_unknown_commands:z.boolean().default(false)},false,true);
+ register('send_input','Queue a same-scope clarification via Pi steering without pausing. Does not auto-resume stopped work or change model, scope, limits or acceptance.',{...task,input:z.string().min(1).max(16000),expected_revision:z.number().int().positive().optional()},false);
+ register('verify_delivery','Check current files against the completed delivery manifest, without inference or rewriting the recorded artifact version.',task,true);
+ register('runtime_status','Read actual client/engine build fingerprints and protocol; no model calls or interruption of active work.',projectSchema,true);
+ register('read_events','Read a bounded event page for a specific diagnostic, not continuous main-model log forwarding.',{...task,after_seq:z.number().int().nonnegative().default(0),limit:z.number().int().min(1).max(100).default(50)},true);
+ register('read_artifact','Read a bounded page of the candidate/check evidence. Verify delivery separately to detect later workspace changes.',{...task,offset:z.number().int().nonnegative().default(0),limit:z.number().int().min(1).max(16384).default(4096)},true);
+ await server.connect(new StdioServerTransport());process.stdin.once('end',()=>void server.close());return server;
+}

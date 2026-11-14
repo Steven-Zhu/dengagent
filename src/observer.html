@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Deng · 控制台</title>
+<style>
+:root{font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;color:#24332d;background:#f5f7f4;color-scheme:light}*{box-sizing:border-box}body{margin:0}header{position:sticky;top:0;background:#f5f7f4ed;backdrop-filter:blur(12px);padding:20px 24px 14px;border-bottom:1px solid #dde4dc;z-index:2}.brand{display:flex;align-items:center;gap:10px}h1{font-size:22px;line-height:1.2;margin:0;letter-spacing:-.7px}.mark{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:#264b3c;color:white;font-weight:700}.badge{margin-left:auto;border-radius:20px;font-size:12px;padding:4px 10px;background:#e4eae4}.badge[data-tone=live]{background:#def2e5;color:#17643b}.badge[data-tone=warn]{background:#fff0ce;color:#875b09}.badge[data-tone=error]{background:#fbe3dd;color:#9a3721}.sub{font-size:12px;color:#6c7971;margin:8px 0 0}main{padding:20px 24px 40px;max-width:1000px;margin:auto}section{background:#fff;border:1px solid #e0e6de;border-radius:14px;margin-bottom:16px;padding:18px}h2{font-size:12px;color:#6a786e;letter-spacing:1px;margin:0 0 10px;text-transform:uppercase}#goal{margin:0;font-size:15px;overflow-wrap:anywhere}#model{font-size:17px;font-weight:600;margin:0}#endpoint{font-size:11px;color:#7d887f;overflow-wrap:anywhere}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}.stat{background:#f6f8f5;border-radius:9px;padding:10px}.stat b{display:block;font-size:17px;font-variant-numeric:tabular-nums}.stat span{font-size:11px;color:#748077}.bar{height:4px;background:#edf1eb;border-radius:4px;overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;width:0;background:#478164}.toolbar{display:flex;align-items:center;justify-content:space-between;margin:20px 0 12px}.toolbar h2{margin:0}.toggle{font-size:12px;color:#607365}button{font:inherit;font-size:12px;border:1px solid #cfd9cc;background:white;border-radius:7px;padding:5px 9px;color:#3e5f49;cursor:pointer}.entry{border-left:2px solid #dbe3d7;padding:0 0 18px 16px;position:relative;margin-left:3px}.entry:before{content:"";position:absolute;left:-5px;top:7px;width:8px;height:8px;border-radius:50%;background:#809c84;border:2px solid #f5f7f4}.entry time{font-size:11px;color:#859087;float:right}.entry h3{font-size:13px;margin:0 0 5px;font-weight:600}.entry pre{font:12px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;margin:0;white-space:pre-wrap;word-break:break-word;color:#45534b;background:white;padding:11px;border:1px solid #e0e6de;border-radius:9px}.entry.test:before{background:#30965f}.entry.stop:before{background:#c68a25}.entry.error:before{background:#c0573f}.entry.file pre{color:#357451}#files{display:flex;flex-direction:column;gap:7px}#files code{font-size:12px;word-break:break-word}.notice{font-size:12px;color:#69796c;background:#edf2e9;padding:11px 13px;border-radius:9px;margin-top:16px}#error{display:none;background:#fff1db;color:#825a16;padding:12px;border-radius:9px;font-size:12px;margin-bottom:16px}.empty{color:#839084;font-size:13px}#connection{font-size:11px;color:#7c887f}.raw{display:none}body.details .raw{display:block}.pulse{animation:pulse 1.5s infinite}@keyframes pulse{50%{opacity:.5}}@media(max-width:480px){header{padding:16px}main{padding:16px}.stats{gap:5px}.stat{padding:8px}.stat b{font-size:15px}section{padding:14px}.entry{padding-left:12px}}@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+.head-tools{display:flex;align-items:center;gap:12px;margin-top:16px}.model-label{font-size:12px;color:#607365}select{max-width:100%;font:inherit;color:#264b3c;background:white;border:1px solid #cfd9cc;border-radius:8px;padding:7px 28px 7px 10px;min-width:0}.head-tools select{flex:1}.controls{display:flex;gap:8px;margin-top:14px}button:disabled{opacity:.45;cursor:default}button:focus-visible,select:focus-visible{outline:2px solid #478164;outline-offset:3px}#new-events{position:fixed;bottom:20px;right:24px;box-shadow:0 4px 20px #244b3c24;background:#264b3c;color:white;z-index:3}#activity{color:#477153;font-size:12px;margin:12px 0 0}[hidden]{display:none!important}
+dialog{width:min(540px,calc(100% - 32px));border:1px solid #cfd9cc;border-radius:16px;padding:24px;color:#24332d;max-height:90vh;overflow:auto}dialog::backdrop{background:#10291e66}dialog h2{font-size:19px;color:#264b3c;letter-spacing:0}dialog label.field{display:block;margin:14px 0}dialog label.field span{display:block;margin-bottom:5px;font-size:13px}dialog input:not([type=checkbox]),dialog select{font:inherit;width:100%;padding:9px 10px;border:1px solid #cfd9cc;border-radius:8px;background:white;color:inherit}input:focus-visible{outline:2px solid #478164;outline-offset:2px}.setting-note{font-size:12px;color:#65776b;margin:8px 0}.setting-check{display:flex;align-items:flex-start;gap:8px;margin:12px 0;font-size:12px}.setting-check input{margin-top:4px}.setting-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin-top:20px}.setting-actions button{padding:8px 13px}.primary{background:#264b3c;color:white}#settings-message{white-space:pre-wrap;font-size:13px;padding:10px;background:#edf2e9;border-radius:8px}details summary{cursor:pointer;font-size:13px}#settings-open{white-space:nowrap}
+</style></head><body>
+<header><div class="brand"><span class="mark">D</span><h1>Deng</h1><span class="badge" id="status">连接中</span></div><div class="head-tools"><label class="model-label" for="model-select">模型</label><select id="model-select" aria-label="模型" disabled><option>正在读取…</option></select><button id="settings-open" type="button">连接设置</button></div><p class="sub" id="connection" role="status">准备连接</p></header>
+<main>
+<section><h2>当前任务</h2><p id="goal">等待任务</p><p class="sub" id="task-id"></p><p id="activity"></p><div class="controls"><button id="pause" type="button" disabled>暂停</button><button id="resume" type="button" disabled>继续</button><button id="cancel" type="button" disabled>取消</button></div><p id="delivery-note" class="sub"></p><p id="command-note" class="sub"></p><div id="acknowledgements" hidden><label><input id="ack-usage" type="checkbox">我已核对未知请求，同意保留预留并继续</label><br><label><input id="ack-commands" type="checkbox">我已核对未知命令结果，同意继续并处理可能的重放</label></div><form id="input-form"><label for="task-input">补充说明（保持原任务范围）</label><textarea id="task-input" maxlength="4000" rows="2" style="display:block;width:100%;font:inherit" placeholder="在当前工具结束后送入，不会自动恢复暂停任务"></textarea><button id="send-input" type="submit" disabled>发送补充说明</button><span id="input-message" role="status"></span></form></section>
+<section><h2>用量</h2><div class="stats"><div class="stat"><b id="calls">—</b><span>模型调用</span></div><div class="stat"><b id="tokens">—</b><span>已报告 token</span></div><div class="stat"><b id="reserved">—</b><span>请求中预留</span></div><div class="stat"><b id="unknown">—</b><span>待确认预留</span></div><div class="stat"><b id="cost">未知</b><span>金额估算</span></div></div><div class="bar"><i id="budget-bar"></i></div><p class="sub" id="budget-note"></p></section>
+<div id="error" role="status"></div>
+<section><h2>变更文件</h2><div id="files"><span class="empty">暂无文件变更</span></div></section>
+<div class="toolbar"><h2>执行过程</h2><button id="details" type="button" aria-pressed="false">显示详细事件</button></div>
+<div id="timeline" aria-label="任务执行记录"><p class="empty" id="empty">等待第一条执行事件…</p></div>
+<div class="notice">只有“创建 / 更新文件”事件证明内容已落盘；公开输出不是工具执行。这里展示工具操作和测试日志，不展示内部思考。观察不调用模型，关闭面板不会停止 Deng。</div>
+</main><button id="new-events" type="button" hidden>回到最新</button>
+<dialog id="settings-dialog" aria-labelledby="settings-title"><form id="settings-form" autocomplete="off">
+<h2 id="settings-title">连接设置</h2><p id="settings-scope-note" class="setting-note">修改 API 地址、模型或 Key。保存只影响以后新建的任务；现有任务保留原连接。请在任务停止后保存。</p>
+<label class="field"><span>连接配置</span><select id="settings-profile" aria-label="连接配置"></select></label>
+<label class="field"><span>API URL</span><input id="settings-url" type="url" required spellcheck="false" placeholder="https://api.example.com/v1"></label>
+<label class="field"><span>模型 ID</span><input id="settings-model" required maxlength="256" spellcheck="false"></label>
+<label class="field"><span>API Key</span><input id="settings-key" type="password" maxlength="8192" autocomplete="new-password" placeholder="留空保留现有 Key"><small id="settings-key-state" class="setting-note"></small></label>
+<label class="setting-check" id="settings-reuse-row" hidden><input id="settings-reuse" type="checkbox"><span>我确认将现有 Key 用于上面填写的新 API 地址。也可以填写新 Key。</span></label>
+<label class="field"><span>Thinking 思考模式</span><select id="settings-thinking"><option value="enabled">开启</option><option value="disabled">关闭</option><option value="provider-default">明确跟随供应商默认</option></select></label><label class="field"><span>Reasoning effort 思考强度</span><select id="settings-effort"><option value="low">低</option><option value="medium">中等</option><option value="high">高</option><option value="max">最高</option></select></label><p class="setting-note" id="settings-reasoning-note"></p><details><summary>高级设置</summary><p class="setting-note">请使用服务商实际支持的上限。上下文和单次输出上限不会增加任务累计额度；额度可单独设置。</p><label class="field"><span>上下文上限（token）</span><input id="settings-context" type="number" min="4096" max="2000000" required></label><label class="field"><span>单次输出上限（token）</span><input id="settings-output" type="number" min="128" max="64000" required></label><label class="field"><span>模型请求总超时（毫秒）</span><input id="settings-timeout" type="number" min="100" max="600000" required></label><label class="field"><span>未来任务累计 token 上限（本配置共用，含预留）</span><input id="settings-total" type="number" min="1024" max="16000000" required></label><label class="field"><span>未来任务模型调用上限（留空不限）</span><input id="settings-calls" type="number" min="1" max="200"></label><label class="field"><span>推理参数格式</span><select id="settings-reasoning-format"><option value="auto">自动（按模型 ID）</option><option value="deepseek">DeepSeek thinking + effort</option><option value="openai">OpenAI reasoning_effort</option><option value="none">不发送推理参数（不支持的模型）</option></select></label></details>
+<label class="setting-check"><input id="settings-probe-confirm" type="checkbox"><span>允许“测试连接”发起 1 次关闭思考的小型连通性请求，可能收费；不验证思考或工具能力。打开和保存设置不调用模型。</span></label>
+<p id="settings-message" role="status" hidden></p><div class="setting-actions"><button id="settings-close" type="button">关闭</button><button id="settings-probe" type="button">测试连接</button><button id="settings-save" class="primary" type="submit">保存设置</button></div>
+</form></dialog>
+<script nonce="__NONCE__">
+(()=>{
+const byId=id=>document.getElementById(id);const labels={queued:'排队中',running:'执行中',pausing:'正在暂停',paused:'已暂停',waiting_input:'等待你补充',interrupted:'执行已中断',cancelling:'正在取消',cancelled:'已取消',completed:'已完成',failed:'执行失败',budget_exceeded:'预算保护 · 已停止'};
+const terminal=new Set(['completed','failed','cancelled','budget_exceeded']);let after=0,textEntry=null,outputEntry=null,outputAcceptance=false,currentTask=null,catalog=null,modelBusy=false,controlBusy=false,following=true,unread=0;
+let acknowledgementTaskId;
+function state(task){
+  if(acknowledgementTaskId!==task.id){byId('ack-usage').checked=false;byId('ack-commands').checked=false;acknowledgementTaskId=task.id;}
+  const badge=byId('status');badge.textContent=labels[task.status]||task.status;badge.dataset.tone=task.status==='running'||task.status==='completed'?'live':task.status==='failed'?'error':['budget_exceeded','paused','waiting_input','interrupted'].includes(task.status)?'warn':'';badge.classList.toggle('pulse',task.status==='running');
+  byId('goal').textContent=task.goal;byId('task-id').textContent='任务 '+task.id;
+  byId('pause').disabled=controlBusy||!['running','queued'].includes(task.status);byId('resume').disabled=controlBusy||!['paused','waiting_input','interrupted'].includes(task.status);byId('cancel').disabled=controlBusy||terminal.has(task.status)||['pausing','cancelling'].includes(task.status);
+  byId('calls').textContent=task.usage.model_calls+' / '+(task.budget.max_model_calls===null?'不限':task.budget.max_model_calls);byId('tokens').textContent=(task.usage_accounting?.settled_tokens??((task.usage.input_tokens||0)+(task.usage.output_tokens||0))).toLocaleString();
+  byId('reserved').textContent=(task.usage_accounting?.in_flight_reserved_tokens??0).toLocaleString();byId('unknown').textContent=(task.usage_accounting?.unknown_reserved_tokens??0).toLocaleString();
+  byId('budget-bar').style.width=Math.min(100,task.usage.tokens/task.budget.max_total_tokens*100)+'%';byId('budget-note').textContent='额度占用（含预留） '+task.usage.tokens.toLocaleString()+' / '+task.budget.max_total_tokens.toLocaleString()+' · 金额未知不表示免费';
+  const phases={preparing:'准备执行',request_reserved:'准备模型请求',model_generation:'模型生成中',executing_command:'命令执行中',accepting:'正在验收',awaiting_model:'准备下一步',waiting_input:'等待补充说明',completed:'已完成',timed_out:'已超时',stopped:'已停止'};
+  if(task.phase?.name)byId('activity').textContent=phases[task.phase.name]||labels[task.status]||task.status;
+  byId('send-input').disabled=terminal.has(task.status)||controlBusy;
+  byId('delivery-note').textContent=task.delivery?'交付版本 '+task.delivery.id.slice(0,16)+' · '+task.delivery.file_count+' 个文件 · 里程碑为历史检查记录':'';
+  byId('command-note').textContent=task.unknown_command_count?'有 '+task.unknown_command_count+' 条命令结果待核实；不会自动重放。':'';
+  byId('acknowledgements').hidden=!((task.usage.unknown_calls||task.unknown_command_count)&&['paused','waiting_input','interrupted'].includes(task.status));
+  const error=byId('error');error.style.display=task.error?'block':'none';error.textContent=task.error?((task.status==='budget_exceeded'?'任务触发预算保护；已保存的文件和测试记录仍可查看。 ':'')+task.error.message):'';
+  const files=Object.keys(task.changes||{});if(files.length){byId('files').replaceChildren(...files.map(path=>{const node=document.createElement('code');node.textContent=path;return node;}));}else{byId('files').textContent='暂无文件变更';}
+}
+function entry(title,body,kind,event){
+  byId('empty')?.remove();const row=document.createElement('article');row.className='entry '+kind;const time=document.createElement('time');time.textContent=new Date(event.timestamp).toLocaleTimeString('zh-CN',{hour12:false});const heading=document.createElement('h3');heading.textContent=title;row.append(time,heading);
+  const pre=document.createElement('pre');pre.textContent=body;row.append(pre);byId('timeline').append(row);return pre;
+}
+function event(value){
+  if(value.type!=='tool.output')outputEntry=null;
+  const p=value.payload;if(value.type==='model.text_delta'){if(!textEntry)textEntry=entry('公开输出（不是文件写入）','','model',value);textEntry.append(document.createTextNode(p.text));return;}
+  textEntry=null;
+  if(value.type==='task.queued')entry('任务已提交',p.goal,'',value);
+  else if(value.type==='task.started')entry('开始执行',(p.model_info?.profile||'worker')+' / '+p.model,'',value);
+  else if(value.type==='tool.started')entry('执行工具 · '+p.name,p.path||(p.argv||[]).join(' ')||'调用已开始','',value);
+  else if(value.type==='tool.completed'&&p.name!=='run_command')entry(p.is_error?'工具返回错误':'工具完成',p.name,p.is_error?'error':'raw',value);
+  else if(value.type==='command.completed'){const failed=p.command_code!==0||p.timed_out||p.signal;entry(failed?'命令执行失败':'命令完成','退出码 '+p.command_code+(p.signal?' · 信号 '+p.signal:'')+(p.timed_out?' · 已超时':'')+(p.truncated?' · 输出已截断':'')+'；命令已执行，不会自动重放。',failed?'error':'test',value);}
+  else if(value.type==='task.recovery_started')entry('有界恢复',p.reason+' · 第 '+p.repair+' 轮；保留原任务、预算和已完成文件。','stop',value);
+  else if(value.type==='file.changed')entry(p.created?'创建文件':'更新文件',p.path,'file',value);
+  else if(value.type==='tool.output'){if(!outputEntry||outputAcceptance!==Boolean(p.acceptance)){outputEntry=entry(p.acceptance?'验收命令输出':'命令输出','','test',value);outputAcceptance=Boolean(p.acceptance);}outputEntry.append(document.createTextNode(p.text));}
+  else if(value.type==='acceptance.started')entry('开始固定验收',(p.argv||[]).join(' '),'test',value);
+  else if(value.type==='acceptance.completed')entry(p.passed?'固定验收通过':'固定验收未通过',JSON.stringify(p.checks,null,2),'test',value);
+  else if(value.type==='task.completed')entry('任务完成',p.summary,'test',value);
+  else if(value.type==='task.failed')entry('任务停止',p.code+' · '+p.message,'stop',value);
+  else if(value.type==='task.input_required')entry('需要你补充',p.question,'stop',value);
+  else if(value.type==='task.model_changed')entry('模型已切换',p.model_info.model+'（当前状态：'+(labels[p.status]||p.status)+'）','',value);
+  else if(value.type==='task.state_changed'||value.type==='task.resumed')entry('任务状态变化',p.status?(labels[p.status]||p.status):'已明确恢复','',value);
+  else entry(value.type,JSON.stringify(p,null,2),'raw',value);
+}
+function showError(message){byId('error').textContent=message;byId('error').style.display=message?'block':'none';}
+const key=p=>JSON.stringify([p.profile,p.model]);
+function models(value){
+  catalog=value;if(modelBusy)return;const select=byId('model-select');
+  const profiles=[...(value.choices||value.profiles)];if(value.default&&!profiles.some(p=>key(p)===key(value.default)))profiles.push(value.default);
+  const signature=JSON.stringify(profiles);if(select.dataset.catalog!==signature){select.replaceChildren(...profiles.map(p=>{const option=document.createElement('option');option.value=key(p);option.textContent=p.name||p.model;return option;}));select.dataset.catalog=signature;}
+  select.value=value.default?key(value.default):'';select.disabled=!profiles.length;
+  if(value.default_error)showError(value.default_error.message);
+}
+async function post(route,payload){
+  const response=await fetch(location.pathname+route,{method:'POST',headers:{'content-type':'application/json','x-deng-csrf':'__CSRF__'},body:JSON.stringify(payload)});
+  const value=await response.json();if(!response.ok)throw new Error(value.error||'操作失败');return value;
+}
+let settings=null,settingsBusy=false;
+const settingsDialog=byId('settings-dialog'),settingsForm=byId('settings-form');
+function settingsMessage(text){byId('settings-message').hidden=!text;byId('settings-message').textContent=text;}
+function selectedConnection(){return settings?.profiles.find(p=>p.profile===byId('settings-profile').value);}
+function reuseVisibility(){const p=selectedConnection();byId('settings-reuse-row').hidden=!p||byId('settings-url').value.replace(/\/+$/,'')===p.base_url.replace(/\/+$/,'');}
+function fillConnection(){
+  const p=selectedConnection();if(!p)return;
+  for(const [id,name]of[['url','base_url'],['model','model'],['context','context_window'],['output','max_output_tokens'],['timeout','timeout_ms'],['thinking','thinking'],['effort','reasoning_effort'],['reasoning-format','reasoning_format']])byId('settings-'+id).value=p[name];
+  byId('settings-total').value=settings.budget.max_total_tokens;byId('settings-calls').value=settings.budget.max_model_calls??'';reasoningNote();
+  byId('settings-key').value='';byId('settings-reuse').checked=false;byId('settings-probe-confirm').checked=false;
+  byId('settings-key-state').textContent=p.key_configured?'已有 Key；为保护密钥，不显示原值。':'尚未配置 Key。';reuseVisibility();
+}
+function reasoningNote(){const enabled=byId('settings-thinking').value==='enabled',format=byId('settings-reasoning-format').value,deepseek=format==='deepseek'||(format==='auto'&&/^deepseek(?:[/-]|$)/i.test(byId('settings-model').value));byId('settings-effort').disabled=settingsBusy||!enabled;byId('settings-reasoning-note').textContent=format==='none'?'不发送推理控制参数；实际模式由接口决定。':enabled?(deepseek&&byId('settings-effort').value==='medium'?'请求中等；DeepSeek 兼容映射实际发送 high。':'按所选格式发送思考强度；服务商仍可能映射。'):'关闭时不发送已保存的强度；跟随默认时不发送推理控制参数。';}
+async function readSettings(){
+  const response=await fetch(location.pathname+'connection');const value=await response.json();if(!response.ok)throw new Error(value.error||'无法读取连接设置');
+  settings=value;byId('settings-title').textContent=value.scope==='global'?'全局连接设置':'项目连接设置';byId('settings-scope-note').textContent=value.scope==='global'?'用于所有继承全局连接的项目的新任务；已有任务保留原连接。':(value.inherits_global?'此项目当前继承全局连接；在这里保存会建立项目专用设置。请在本项目任务停止后保存。':'修改此项目的新任务连接；已有任务保留原连接。请在本项目任务停止后保存。');byId('settings-profile').replaceChildren(...value.profiles.map(p=>{const option=document.createElement('option');option.value=p.profile;option.textContent=p.profile;return option;}));
+  byId('settings-profile').value=value.default_profile;fillConnection();
+}
+function settingBusy(value){settingsBusy=value;for(const element of settingsForm.elements)element.disabled=value;if(!value)reasoningNote();}
+byId('settings-open').addEventListener('click',async()=>{
+  settingsMessage('正在读取…');settingsDialog.showModal();settingBusy(true);
+  try{await readSettings();settingsMessage('');}catch(error){settingsMessage(error.message);}finally{settingBusy(false);}
+});
+byId('settings-profile').addEventListener('change',()=>{fillConnection();settingsMessage('');});
+for(const id of ['settings-thinking','settings-effort','settings-reasoning-format','settings-model'])byId(id).addEventListener('input',reasoningNote);
+byId('settings-url').addEventListener('input',()=>{byId('settings-reuse').checked=false;reuseVisibility();});
+byId('settings-close').addEventListener('click',()=>settingsDialog.close());
+settingsDialog.addEventListener('cancel',event=>{if(settingsBusy)event.preventDefault();});
+settingsDialog.addEventListener('close',()=>{byId('settings-key').value='';byId('settings-probe-confirm').checked=false;});
+function connectionPayload(){
+  if(!settings)throw new Error('请关闭后重新打开设置。');
+  const payload={profile:byId('settings-profile').value,base_url:byId('settings-url').value.trim(),model:byId('settings-model').value.trim(),api_key:byId('settings-key').value,
+    context_window:Number(byId('settings-context').value),timeout_ms:Number(byId('settings-timeout').value),thinking:byId('settings-thinking').value,reasoning_effort:byId('settings-effort').value,reasoning_format:byId('settings-reasoning-format').value,max_total_tokens:Number(byId('settings-total').value),max_model_calls:byId('settings-calls').value===''?null:Number(byId('settings-calls').value),max_output_tokens:Number(byId('settings-output').value),expected_revision:settings.revision,reuse_credential:byId('settings-reuse').checked};
+  if(!byId('settings-reuse-row').hidden&&!payload.api_key.trim()&&!payload.reuse_credential)throw new Error('地址已改变，请填写新 Key，或勾选确认将现有 Key 用于新地址。');
+  return payload;
+}
+async function changeConnection(probe){
+  if(settingsBusy||!settingsForm.reportValidity())return;
+  try{
+    if(probe&&!byId('settings-probe-confirm').checked)throw new Error('测试会调用模型；请先勾选允许 1 次请求。');
+    const payload=connectionPayload();if(probe)payload.confirm_model_call=true;settingBusy(true);settingsMessage(probe?'正在测试（最多 1 次请求）…':'正在保存…');
+    const result=await post(probe?'connection/probe':'connection',payload);
+    if(probe)settingsMessage(result.ok?'连接测试通过。已请求 1 次模型，费用以服务商为准；设置尚未保存。':'连接测试失败（HTTP '+result.http_status+'）。已请求 1 次；设置尚未保存。');
+    else{await readSettings();settingsMessage('已保存。以后新建的任务将使用此连接；现有任务保持原配置。保存没有调用模型。');}
+  }catch(error){settingsMessage(error.message);}finally{settingBusy(false);}
+}
+settingsForm.addEventListener('submit',event=>{event.preventDefault();void changeConnection(false);});
+byId('settings-probe').addEventListener('click',()=>void changeConnection(true));
+byId('model-select').addEventListener('change',async()=>{
+  const select=byId('model-select');const [profile,model]=JSON.parse(select.value);modelBusy=true;select.disabled=true;
+  try{const result=await post('model',{profile,model});catalog.default=result.model_info;showError('');}catch(error){showError(error.message);}finally{modelBusy=false;models(catalog);}
+});
+for(const action of ['pause','resume','cancel'])byId(action).addEventListener('click',async()=>{
+  if(!currentTask)return;const task=currentTask;let failure;controlBusy=true;state(task);
+  try{const result=await post('control',{task_id:task.id,action,expected_revision:task.revision,...(action==='resume'?{allow_unknown_usage:byId('ack-usage').checked,allow_unknown_commands:byId('ack-commands').checked}:{})});if(action==='resume'){byId('ack-usage').checked=false;byId('ack-commands').checked=false;}if(currentTask?.id===result.id){currentTask=result;state(result);}}catch(error){failure=error.message;}finally{controlBusy=false;if(currentTask)state(currentTask);if(failure)showError(failure);}
+});
+function latest(){following=true;unread=0;byId('new-events').hidden=true;window.scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'});}
+byId('new-events').addEventListener('click',latest);
+window.addEventListener('scroll',()=>{following=window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-80;if(following){unread=0;byId('new-events').hidden=true;}},{passive:true});
+const source=new EventSource(location.pathname+'stream');
+byId('input-form').addEventListener('submit',async event=>{event.preventDefault();const task=currentTask;if(!task)return;const input=byId('task-input').value.trim();if(!input)return;byId('send-input').disabled=true;try{await post('input',{task_id:task.id,input,expected_revision:task.revision});byId('task-input').value='';byId('input-message').textContent='已排队；暂停任务仍需点击继续。';}catch(error){byId('input-message').textContent=error.message;}finally{byId('send-input').disabled=terminal.has(task.status);}});
+source.addEventListener('snapshot',message=>{
+  try{
+    const page=JSON.parse(message.data);models(page.models);
+    if(page.task?.id!==currentTask?.id){after=0;textEntry=null;outputEntry=null;following=true;byId('timeline').replaceChildren();byId('activity').textContent='';}
+    currentTask=page.task;
+    if(currentTask){state(currentTask);let count=0;for(const item of page.events){if(item.seq<=after)continue;event(item);after=item.seq;count++;if(item.type==='tool.started')byId('activity').textContent='正在执行：'+item.payload.name;else if(item.type==='model.text_delta')byId('activity').textContent='Deng 正在输出';}
+      if(currentTask.status!=='running')byId('activity').textContent=labels[currentTask.status]||currentTask.status;
+      if(count){if(following)latest();else{unread+=count;byId('new-events').hidden=false;byId('new-events').textContent=unread+' 条新事件 · 回到最新';}}
+    }else{byId('goal').textContent='等待任务';byId('status').textContent='已就绪';}
+    byId('connection').textContent='已连接 · 实时推送';
+  }catch{byId('connection').textContent='事件读取失败，正在重新连接';source.close();location.reload();}
+});
+source.onerror=()=>{byId('connection').textContent='连接中断，正在重连；任务不受影响';};
+byId('details').addEventListener('click',()=>{const active=document.body.classList.toggle('details');byId('details').setAttribute('aria-pressed',String(active));byId('details').textContent=active?'隐藏详细事件':'显示详细事件';});
+})();
+</script></body></html>

@@ -1,0 +1,59 @@
+name: Bug report / 故障报告
+description: Report a reproducible problem with fake data. / 使用虚构数据提供复现。
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never include API Keys, private files, raw logs or console URL tokens.
+        请勿上传 Key、私有文件、原始日志或控制台随机地址。Security issues / 安全问题：see SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: DengAgent version / 版本
+      description: Output of deng --version; confirm the running launcher. / 请确认实际运行入口。
+      placeholder: 0.2.0-alpha.8
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS, architecture, Node and host / 系统、架构、Node 与宿主
+      placeholder: macOS, arm64, Node 24, Codex desktop
+    validations:
+      required: true
+  - type: dropdown
+    id: installation
+    attributes:
+      label: Installation / 安装方式
+      options:
+        - npm tarball / 本地 tgz
+        - npm registry / 注册表
+        - Source checkout / 源码
+        - Legacy .command / 旧版安装器
+        - Other / 其他
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction and expected result / 复现与预期结果
+      description: Minimal steps using a disposable project and fake credentials; include global/project scope and isolation mode. / 使用临时项目和虚构凭证，说明全局或项目配置及隔离模式。
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result and safe error code / 实际结果与安全错误码
+      description: Sanitize endpoints, user paths, task IDs and images. Do not paste whole config files. / 移除私有地址、用户名路径、任务 ID 和图片隐私，不要粘贴完整配置。
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Was a real provider request made? / 是否发送真实模型请求？
+      options:
+        - "No / 没有"
+        - "Yes / 有"
+        - "Unknown / 不确定"
+    validations:
+      required: true
