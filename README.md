@@ -45,8 +45,6 @@ Choose a model for the task and evaluate cost using recorded usage, rework and a
 
 Install Node.js 24+ and npm 10+. Install from npm, then initialize:
 
-> npm publication is undergoing automated validation. The registry command below becomes usable when the full package is released; the temporary holding package does not contain the CLI.
-
 ```sh
 npm install --global dengagent
 deng init

@@ -2,8 +2,6 @@
 
 Node.js 24+ and npm 10+ are required. Install from the public npm registry, then initialize your user connection once:
 
-> npm publication is undergoing automated validation. The registry command below becomes usable when the full package is released; the temporary holding package does not contain the CLI.
-
 ```sh
 npm install --global dengagent
 deng init

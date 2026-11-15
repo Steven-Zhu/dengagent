@@ -6,8 +6,6 @@ DengAgent currently supports Codex integration. Integrations with other agents a
 
 Use Node.js 24+ and npm 10+, then run:
 
-> npm publication is undergoing automated validation. The registry command below becomes usable when the full package is released; the temporary holding package does not contain the CLI.
-
 ```sh
 npm install --global dengagent
 deng init
