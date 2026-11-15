@@ -1,10 +1,16 @@
+<p align="center">
+  <a href="README.md" title="Read in English"><img src="https://raw.githubusercontent.com/Steven-Zhu/dengagent/main/docs/assets/language-en.svg" alt="English" width="144" height="40" /></a>
+  &nbsp;
+  <a href="README.zh-CN.md" title="阅读简体中文版"><img src="https://raw.githubusercontent.com/Steven-Zhu/dengagent/main/docs/assets/language-zh-CN.svg" alt="简体中文" width="144" height="40" /></a>
+</p>
+
 <p align="center"><img src="https://raw.githubusercontent.com/Steven-Zhu/dengagent/main/docs/assets/dengagent-mark.svg" width="72" height="72" alt="DengAgent" /></p>
 
 # DengAgent
 
 **把方案交给 DengAgent，自选模型，平衡智能与成本。**
 
-[Wiki](docs/wiki/Home.md) · 使用过程：[中文](docs/workflow.md) / [EN](docs/workflow.en.md) · [English](README.md) · [视频案例](docs/showcase.md) · [第一次任务](docs/first-task.md) · [文档导航](docs/README.md) · 发布介绍：[中文](docs/announcement.zh-CN.md) / [EN](docs/announcement.md)
+[Wiki](docs/wiki/Home.md) · 使用过程：[中文](docs/workflow.md) / [EN](docs/workflow.en.md) · [视频案例](docs/showcase.md) · [第一次任务](docs/first-task.md) · [文档导航](docs/README.md) · 发布介绍：[中文](docs/announcement.zh-CN.md) / [EN](docs/announcement.md)
 
 使用 Codex 时，你可以把设计好的方案交给 DengAgent 执行，自由选择执行模型，在智能水平与使用成本之间找到适合自己的平衡。配置模型 API、授权文件和命令后，即可在实时控制台查看执行过程，并在完成后检查文件变更、验收结果与交付清单。
 

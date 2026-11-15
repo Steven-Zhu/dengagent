@@ -1,10 +1,16 @@
+<p align="center">
+  <a href="README.md" title="Read in English"><img src="https://raw.githubusercontent.com/Steven-Zhu/dengagent/main/docs/assets/language-en.svg" alt="English" width="144" height="40" /></a>
+  &nbsp;
+  <a href="README.zh-CN.md" title="阅读简体中文版"><img src="https://raw.githubusercontent.com/Steven-Zhu/dengagent/main/docs/assets/language-zh-CN.svg" alt="简体中文" width="144" height="40" /></a>
+</p>
+
 <p align="center"><img src="https://raw.githubusercontent.com/Steven-Zhu/dengagent/main/docs/assets/dengagent-mark.svg" width="72" height="72" alt="DengAgent" /></p>
 
 # DengAgent
 
 **Hand off your plan. Choose your model. Balance capability and cost.**
 
-[Wiki](docs/wiki/Home.md) · Workflow: [EN](docs/workflow.en.md) / [中文](docs/workflow.md) · [简体中文](README.zh-CN.md) · [Examples](docs/showcase.md) · [First task](docs/first-task.md) · [Documentation](docs/README.md) · Release: [EN](docs/announcement.md) / [中文](docs/announcement.zh-CN.md)
+[Wiki](docs/wiki/Home.md) · Workflow: [EN](docs/workflow.en.md) / [中文](docs/workflow.md) · [Examples](docs/showcase.md) · [First task](docs/first-task.md) · [Documentation](docs/README.md) · Release: [EN](docs/announcement.md) / [中文](docs/announcement.zh-CN.md)
 
 When using Codex, you can hand your implementation plan to DengAgent and choose the model that carries it out, balancing capability and cost for each task. Configure its model API, authorize files and commands, and follow execution in a live console. When it finishes, review the file changes, acceptance results and delivery manifest.
 
