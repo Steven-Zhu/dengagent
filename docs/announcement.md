@@ -32,6 +32,8 @@ For a complete workflow with English annotations, source screenshots and an Engl
 
 DengAgent is MIT-licensed and requires Node.js 24+ and npm 10+. Command isolation has been validated primarily on macOS. Install from npm following the [installation guide](npm-installation.md), then initialize:
 
+> npm publication is undergoing automated validation. The registry command below becomes usable when the full package is released; the temporary holding package does not contain the CLI.
+
 ```sh
 npm install --global dengagent
 deng init

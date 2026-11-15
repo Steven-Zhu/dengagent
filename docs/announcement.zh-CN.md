@@ -36,6 +36,8 @@ Codex 通过 MCP 把目标、文件范围、允许执行的命令和验收要求
 
 项目采用 **MIT 协议**。需要 Node.js 24+、npm 10+；命令隔离主要在 macOS 验证。按[安装指南](npm-installation.md) 从 npm 安装，然后执行：
 
+> npm 发布正在自动校验中。完整安装包上线后再使用下方注册表安装命令；临时占位包不包含 CLI。
+
 ```sh
 npm install --global dengagent
 deng init

@@ -8,6 +8,8 @@ Currently supports Codex integration. Integrations with other agents are in deve
 
 ## 从 npm 安装 / Install from npm
 
+> npm 发布正在自动校验中。完整安装包上线后再使用下方注册表安装命令；临时占位包不包含 CLI。
+
 ```sh
 npm install --global dengagent
 deng init
