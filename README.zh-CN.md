@@ -12,7 +12,7 @@
 
 [Wiki](docs/wiki/Home.md) · 使用过程：[中文](docs/workflow.md) / [EN](docs/workflow.en.md) · [视频案例](docs/showcase.md) · [第一次任务](docs/first-task.md) · [文档导航](docs/README.md) · 发布介绍：[中文](docs/announcement.zh-CN.md) / [EN](docs/announcement.md)
 
-使用 Codex 时，你可以把设计好的方案交给 DengAgent 执行，自由选择执行模型，在智能水平与使用成本之间找到适合自己的平衡。配置模型 API、授权文件和命令后，即可在实时控制台查看执行过程，并在完成后检查文件变更、验收结果与交付清单。
+DengAgent 是通过 Model Context Protocol（MCP）接入 Codex 的本地 AI 编程执行器。使用 Codex 时，你可以把设计好的方案交给 DengAgent 执行，自由选择执行模型，在智能水平与使用成本之间找到适合自己的平衡。配置模型 API、授权文件和命令后，即可在实时控制台查看执行过程，并在完成后检查文件变更、验收结果与交付清单。
 
 目前支持 **Codex 接入**，其他 Agent 的接入正在开发中。[查看接入说明](docs/wiki/Integrations.md)
 

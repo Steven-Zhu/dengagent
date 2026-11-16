@@ -12,7 +12,7 @@
 
 [Wiki](docs/wiki/Home.md) · Workflow: [EN](docs/workflow.en.md) / [中文](docs/workflow.md) · [Examples](docs/showcase.md) · [First task](docs/first-task.md) · [Documentation](docs/README.md) · Release: [EN](docs/announcement.md) / [中文](docs/announcement.zh-CN.md)
 
-When using Codex, you can hand your implementation plan to DengAgent and choose the model that carries it out, balancing capability and cost for each task. Configure its model API, authorize files and commands, and follow execution in a live console. When it finishes, review the file changes, acceptance results and delivery manifest.
+DengAgent is a local AI coding agent for Codex, connected through the Model Context Protocol (MCP). When using Codex, you can hand your implementation plan to DengAgent and choose the model that carries it out, balancing capability and cost for each task. Configure its model API, authorize files and commands, and follow execution in a live console. When it finishes, review the file changes, acceptance results and delivery manifest.
 
 Currently supports **Codex integration**. Integrations with other agents are in development. [Integration status](docs/wiki/Integrations.md)
 
