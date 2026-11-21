@@ -21,7 +21,7 @@
     "sync:shrinkwrap": "node scripts/sync-shrinkwrap.mjs"
   },
   "dependencies": {
-    "@earendil-works/pi-agent-core": "1.3.0",
+    "@earendil-works/pi-agent-core": "1.5.2",
     "@earendil-works/pi-ai": "1.3.0",
     "@modelcontextprotocol/sdk": "1.32.1",
     "smol-toml": "1.9.1",
